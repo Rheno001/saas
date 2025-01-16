@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 
 export const LogoTicker = () => {
-  return <div className='py-[32px] bg-white'>
+  return <div className='py-[32px] md:py-12 bg-white'>
     <div className='container'>
       <div className='flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]'>
       <div className="flex gap-[56px] flex-none">
