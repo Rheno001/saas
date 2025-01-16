@@ -58,7 +58,7 @@ export const Pricing = () => {
       <h2 className="section-title ">Pricing</h2>
       <p className="section-description mt-5">Free forever. Upgrade for unlimited tasks, better security, and exclusive features.</p>
       <div>
-        {pricingTiers.map(({title, monthlyPrice, buttonText, popular, inverse, features}) => (
+        {pricingTiers.map(({title, monthlyPrice, buttonText,features}) => (
           <div className='p-10 border border-[f1f1f1] rounded-3xl shadow-[0_7px_14px_#eaeaea]'>
              <h3 className='text-lg font-bold text-black/50'>{title}</h3>
              <div className='flex items-baseline gap-1 mt-[30px]'>
