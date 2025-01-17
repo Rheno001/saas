@@ -6,7 +6,7 @@ import tubeImage from '@/assets/tube.png'
 export const ProductShowcase = () => {
   return <section className='bg-gradient-to-b from-[#fff] to-[#d2dcff] py-[96px] overflow-x-clip'>
     <div className="container">
-      <div className='max-w-[540px] mx-auto'>
+      <div className='section-heading'>
         <div className='flex justify-center'>
           <div className='tag'>Boost your Productivity</div>
         </div>
