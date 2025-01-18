@@ -7,6 +7,7 @@ import avatar6 from "@/assets/avatar-6.png";
 import avatar7 from "@/assets/avatar-7.png";
 import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -78,8 +79,13 @@ export const Testimonials = () => {
       <h2 className="section-title mt-[20px]">What our Users Say</h2>
       <p className="section-description mt-[20px]">From intuitive design to powerful features, our app has become an essential tool for users around the world.</p>
       <div>
-        {firstColumn.map(testimonial=>(
-          <div></div>
+        {firstColumn.map(({ text, imageSrc, name, username})=>(
+          <div className="card">
+            <div>{text}</div>
+            <div>
+              <Image src={imageSrc} alt={name} width={40} height={40} className="rounded-full"/>
+            </div>
+          </div>
         ))}
       </div>
     </div>
