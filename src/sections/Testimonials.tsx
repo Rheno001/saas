@@ -9,7 +9,16 @@ import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
 import Image from "next/image";
 
-const testimonials = [
+// Define the type for a testimonial
+type Testimonial = {
+  text: string;
+  imageSrc: string;
+  name: string;
+  username: string;
+};
+
+// Testimonials data
+const testimonials: Testimonial[] = [
   {
     text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
     imageSrc: avatar1.src,
@@ -17,7 +26,7 @@ const testimonials = [
     username: "@jamietechguru00",
   },
   {
-    text: "Our team's productivity has skyrocketed since we started using this tool. ",
+    text: "Our team's productivity has skyrocketed since we started using this tool.",
     imageSrc: avatar2.src,
     name: "Josh Smith",
     username: "@jjsmith",
@@ -66,40 +75,54 @@ const testimonials = [
   },
 ];
 
+// Split testimonials into columns
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
-const thridColumn =testimonials.slice(6, 9);
+const thirdColumn = testimonials.slice(6, 9);
 
-
-const TestimonialsColumn = (props: {testimonial: typeof testimonials}) => (
+// Testimonials Column Component
+const TestimonialsColumn = (props: { testimonials: Testimonial[] }) => (
   <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
-        {props.testimonials.map(({ text, imageSrc, name, username})=>(
-          <div className="card">
-            <div>{text}</div>
-            <div className="flex items-center gap-2 mt-5">
-              <Image src={imageSrc} alt={name} width={40} height={40} className="rounded-full"/>
-            </div>
-            <div className="flex flex-col">
-              <div className="font-medium tracking-tight leading-5">{name}</div>
-              <div className="leading-5 tracking-tight">{username}</div>
-            </div>
-          </div>
-        ))}
-       </div>
-)
-
-export const Testimonials = () => {
-  return <section className="bg-white">
-    <div className="container">
-      <div className="flex justify-center">
-         <div className="tag">Version 2.0 is here</div>
+    {props.testimonials.map(({ text, imageSrc, name, username }) => (
+      <div key={name} className="card">
+        <div>{text}</div>
+        <div className="flex items-center gap-2 mt-5">
+          <Image
+            src={imageSrc}
+            alt={name}
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
+        </div>
+        <div className="flex flex-col">
+          <div className="font-medium tracking-tight leading-5">{name}</div>
+          <div className="leading-5 tracking-tight">{username}</div>
+        </div>
       </div>
-      <h2 className="section-title mt-[20px]">What our Users Say</h2>
-      <p className="section-description mt-[20px]">From intuitive design to powerful features, our app has become an essential tool for users around the world.</p>
-      <div className="flex justify-center gap-6">
-        <TestimonialsColumn testimonials={firstColumn}/>
-        <TestimonialsColumn testimonials={secondColumn}/>
-      </div> 
-    </div>
-  </section>;
+    ))}
+  </div>
+);
+
+// Testimonials Component
+export const Testimonials = () => {
+  return (
+    <section className="bg-white">
+      <div className="container">
+        <div className="flex justify-center">
+          <div className="tag">Version 2.0 is here</div>
+        </div>
+        <h2 className="section-title mt-[20px]">What our Users Say</h2>
+        <p className="section-description mt-[20px]">
+          From intuitive design to powerful features, our app has become an
+          essential tool for users around the world.
+        </p>
+        <div className="flex justify-center gap-6">
+          <TestimonialsColumn testimonials={firstColumn} />
+          <TestimonialsColumn testimonials={secondColumn} />
+          <TestimonialsColumn testimonials={thirdColumn} />
+        </div>
+      </div>
+    </section>
+  );
 };
