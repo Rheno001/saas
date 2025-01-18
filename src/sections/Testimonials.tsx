@@ -70,6 +70,24 @@ const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thridColumn =testimonials.slice(6, 9);
 
+
+const TestimonialsColumn = (props: {testimonial: typeof testimonials}) => (
+  <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+        {props.testimonials.map(({ text, imageSrc, name, username})=>(
+          <div className="card">
+            <div>{text}</div>
+            <div className="flex items-center gap-2 mt-5">
+              <Image src={imageSrc} alt={name} width={40} height={40} className="rounded-full"/>
+            </div>
+            <div className="flex flex-col">
+              <div className="font-medium tracking-tight leading-5">{name}</div>
+              <div className="leading-5 tracking-tight">{username}</div>
+            </div>
+          </div>
+        ))}
+       </div>
+)
+
 export const Testimonials = () => {
   return <section className="bg-white">
     <div className="container">
@@ -78,16 +96,10 @@ export const Testimonials = () => {
       </div>
       <h2 className="section-title mt-[20px]">What our Users Say</h2>
       <p className="section-description mt-[20px]">From intuitive design to powerful features, our app has become an essential tool for users around the world.</p>
-      <div>
-        {firstColumn.map(({ text, imageSrc, name, username})=>(
-          <div className="card">
-            <div>{text}</div>
-            <div>
-              <Image src={imageSrc} alt={name} width={40} height={40} className="rounded-full"/>
-            </div>
-          </div>
-        ))}
-      </div>
+      <div className="flex justify-center gap-6">
+        <TestimonialsColumn testimonials={firstColumn}/>
+        <TestimonialsColumn testimonials={secondColumn}/>
+      </div> 
     </div>
   </section>;
 };
