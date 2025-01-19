@@ -12,7 +12,7 @@ import { twMerge } from "tailwind-merge";
 
 // Define the type for a testimonial
 type Testimonial = {
-  text: string;
+  text: any;
   imageSrc: string;
   name: string;
   username: string;
@@ -86,7 +86,7 @@ const TestimonialsColumn = (props: {className?: string; testimonials: typeof tes
   <div className={twMerge("flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]", props.className)}>
     {props.testimonials.map(({text, imageSrc, name, username}) => (
       <div key={name} className="card">
-        <div key={text}>{text}</div>
+        <div>{text}</div>
         <div className="flex items-center gap-2 mt-5">
           <Image
             src={imageSrc}
