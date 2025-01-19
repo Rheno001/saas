@@ -11,6 +11,12 @@ import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
 // Define the type for a testimonial
+type Testimonial = {
+  text: string;
+  imageSrc: string;
+  name: string;
+  username: string;
+};
 
 // Testimonials data
 const testimonials: Testimonial[] = [
@@ -78,21 +84,21 @@ const thirdColumn = testimonials.slice(6, 9);
 // Testimonials Column Component
 const TestimonialsColumn = (props: {className?: string; testimonials: typeof testimonials[] }) => (
   <div className={twMerge("flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]", props.className)}>
-    {props.testimonials.map(({text, imageSrc, name, username}) => (
-      <div key={name} className="card">
-        <div>{text}</div>
+    {props.testimonials.map((item: any, index) => (
+      <div key={index} className="card">
+        <div>{item.text}</div>
         <div className="flex items-center gap-2 mt-5">
           <Image
-            src={imageSrc}
-            alt={name}
+            src={item.imageSrc}
+            alt={item.name}
             width={40}
             height={40}
             className="rounded-full"
           />
         </div>
         <div className="flex flex-col">
-          <div className="font-medium tracking-tight leading-5">{name}</div>
-          <div className="leading-5 tracking-tight">{username}</div>
+          <div className="font-medium tracking-tight leading-5">{item.name}</div>
+          <div className="leading-5 tracking-tight">{item.username}</div>
         </div>
       </div>
     ))}
