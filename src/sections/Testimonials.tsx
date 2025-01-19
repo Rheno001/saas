@@ -84,9 +84,9 @@ const thirdColumn = testimonials.slice(6, 9);
 // Testimonials Column Component
 const TestimonialsColumn = (props: {className?: string; testimonials: typeof testimonials[] }) => (
   <div className={twMerge("flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]", props.className)}>
-    {props.testimonials.map(({text, imageSrc, name, username }) => (
+    {props.testimonials.map(({text, imageSrc, name, username}) => (
       <div key={name} className="card">
-        <div>{text}</div>
+        <div key={text}>{text}</div>
         <div className="flex items-center gap-2 mt-5">
           <Image
             src={imageSrc}
