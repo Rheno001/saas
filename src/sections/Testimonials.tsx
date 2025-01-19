@@ -12,7 +12,6 @@ import { twMerge } from "tailwind-merge";
 
 // Define the type for a testimonial
 type Testimonial = {
-  text: any;
   imageSrc: string;
   name: string;
   username: string;
