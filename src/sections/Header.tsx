@@ -16,7 +16,7 @@ export const Header = () => {
   <div className='py-5'>
     <div className="container ">
       <div className="flex items-center justify-between">
-         <Image src={Logo} alt='saas Logo' height={40} width={40} />
+         <div className='flex gap-1 items-center'><Image src={Logo} alt='saas Logo' height={40} width={40} /><p className='font-bold section-description'>Saasy</p></div>
          <MenuIcon className='h-5 w-5 md:hidden'/>
          <nav className='hidden md:flex gap-6 text-black/60 items-center'>
           <a href="#">About</a>
