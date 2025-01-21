@@ -4,10 +4,11 @@ import cogImage from '@/assets/cog.png';
 import Image from 'next/image';
 import cylinderImage from '@/assets/cylinder.png';
 import noodleImage from '@/assets/noodle.png';
-import { easeInOut, motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { easeInOut, motion, useScroll, useTransform, useMotionValueEvent, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 export const Hero = () => {
+  
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef, 
