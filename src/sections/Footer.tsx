@@ -13,19 +13,19 @@ export const Footer = () => {
        <Image src={Logo} height={40} alt='saas logo' className='relative'/>
       </div>
       <nav className='flex flex-col md:flex-row md:justify-center gap-6 mt-6'>
-        <a href="#">About</a>
-        <a href="#">Feature</a>
-        <a href="#">Customers</a>
-        <a href="#">Pricing</a>
-        <a href="#">Help</a>
-        <a href="#">Careers</a>
+        <a href="#" className='hover:text-white'>About</a>
+        <a href="#" className='hover:text-white'>Feature</a>
+        <a href="#" className='hover:text-white'>Customers</a>
+        <a href="#" className='hover:text-white'>Pricing</a>
+        <a href="#" className='hover:text-white'>Help</a>
+        <a href="#" className='hover:text-white'>Careers</a>
       </nav>
       <div className='flex justify-center gap-6 mt-6'>
-        <SocialX/>
-        <SocialYou/>
-        <SocialPin/>
-        <SocialLink/>
-        <SocialInsta/>
+        <SocialX className='hover:text-white hover:scale-105'/>
+        <SocialYou className='hover:text-white hover:scale-105'/>
+        <SocialPin className='hover:text-white hover:scale-105'/>
+        <SocialLink className='hover:text-white hover:scale-105'/>
+        <SocialInsta className='hover:text-white hover:scale-105'/>
       </div>
       <p className='mt-6'>&copy; 2025 Saasify , Inc. All Rights reserved</p>
 
