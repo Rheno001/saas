@@ -1,6 +1,7 @@
+'use client'
 import CheckIcon from '../assets/check.svg';
 import {twMerge} from 'tailwind-merge';
-
+import {motion} from 'framer-motion';
 const pricingTiers = [
   {
     title: "Free",
@@ -65,9 +66,20 @@ export const Pricing = () => {
           <div key={title} className={twMerge('card', inverse === true && 'border-black bg-black text-white')}>
               <div className='flex justify-between'>
                <h3 className={twMerge('text-lg font-bold text-black/50', inverse === true && "text-white/6")}>{title}</h3>
+
                {popular === true && (
                 <div className='inline-flex text-sm px-[16px] py-1.5 rounded-xl border border-white/20'>
-                <span className='bg-[linear-gradient(to_right,#dd7ddf,#e1cd86,#bbcb92,#71cdef,#3bffff,#dd7ddf)] text-transparent bg-clip-text font-medium'>Popular</span>
+                <motion.span
+                animate={{
+                  backgroundPositionX: '100%',
+                }}
+                transition={{
+                  duration:1,
+                  repeat: Infinity,
+                  ease:'linear',
+                  repeatType: 'loop'
+                }}
+                className='bg-[linear-gradient(to_right,#dd7ddf,#e1cd86,#bbcb92,#71cdef,#3bffff,#dd7ddf,#e1cd86,#bbcb92,#71cdef,#3bffff)] [background-size:200%] text-transparent bg-clip-text font-bold'>Popular</motion.span>
              </div>
 
                )}
