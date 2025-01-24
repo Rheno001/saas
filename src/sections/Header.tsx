@@ -17,20 +17,20 @@ export const Header = () => {
       <ArrowRight className='h-4 w-4 inline-flex justify-center items-center'/>
     </div>
   </div>
-  <div className='navbar py-5 bg-black/20 md:bg-white/20'>
+  <div className='navbar py-5'>
     <div className="container ">
       <div className="flex items-center justify-between">
          <div className='flex gap-1 items-center'><Image src={Logo} alt='saas Logo' height={40} width={40} /><p className='font-bold section-description'>Saasy</p></div>
          {!isMenuOpen && (
-           <MenuIcon className='h-5 w-5 md:hidden' onClick={() => setIsMenuOpen(true)}/>
+           <MenuIcon className='h-[25px] w-[25px] md:hidden hover:cursor-pointer' onClick={() => setIsMenuOpen(true)}/>
          )}
-         <nav className={`md:flex gap-6 text-black/60 items-center ${isMenuOpen ? 'flex flex-col md:flex-row' : 'hidden'}`}>
+         <nav className={`md:flex gap-6 items-center ${isMenuOpen ? 'flex flex-col md:flex-row' : 'hidden'}`}>
           <button className='self-end md:hidden font-bold text-xl' onClick={() => setIsMenuOpen(false)}>X</button>
-          <a href="#">About</a>
-          <a href="#">Features</a>
-          <a href="#">Customers</a>
-          <a href="#">Updates</a>
-          <a href="#">Help</a>
+          <a className='text-black md:text-black/60 font-medium' href="#">About</a>
+          <a className='text-black md:text-black/60 font-medium' href="#">Features</a>
+          <a className='text-black md:text-black/60 font-medium' href="#">Customers</a>
+          <a className='text-black md:text-black/60 font-medium' href="#">Updates</a>
+          <a className='text-black md:text-black/60 font-medium' href="#">Help</a>
           <button className='bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex align-middle justify-center tracking-tight'>Get For Free</button>
          </nav>
       </div>
